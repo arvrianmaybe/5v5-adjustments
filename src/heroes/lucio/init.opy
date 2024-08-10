@@ -12,6 +12,7 @@ rule "[lucio/init.opy]: Initialize Lucio":
     setUltCost(ADJ_LUCIO_ULT_COST)
     removeSelfHealing()
 
+    eventPlayer.setMoveSpeed(percent(ADJ_LUCIO_SPEED/OW2_LUCIO_SPEED))
     setBaseDamage(eventPlayer, ADJ_LUCIO_SOUNDWAVE_DAMAGE/OW2_LUCIO_SOUNDWAVE_DAMAGE)
     eventPlayer.setHealingDealt(100)
 
