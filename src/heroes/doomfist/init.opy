@@ -28,3 +28,12 @@ rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
     @Condition eventAbility in [Button.SECONDARY_FIRE, Button.ULTIMATE]
 
     damage(victim, attacker, (eventDamage/eventPlayer._base_damage_scalar - eventDamage)/eventPlayer._base_damage_scalar)
+
+
+rule "[doomfist/init.opy]: Reduce Powerblock duration":
+    @Event eachPlayer
+    @Hero doomfist
+    @Condition eventPlayer.isUsingAbility2()
+
+    wait(ADJ_DOOMFIST_POWER_BLOCK_DURATION)
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
