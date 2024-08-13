@@ -2,7 +2,7 @@
 
 rule "[roadhog/breather.opy]: Breather cooldown logic":
     @Event eachPlayer
-    @Hero roadhog
+    @Condition eventPlayer.hero_setup == Hero.ROADHOG
     @Condition eventPlayer.isFiringSecondaryFire()
     
     wait(ADJ_ROADHOG_BREATHER_DURATION)
