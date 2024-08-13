@@ -24,7 +24,7 @@ rule "[venture/init.opy]: Initialize Venture":
 
 rule "[venture/init.opy]: Correct Venture bonus shields":
     @Event eachPlayer
-    @Hero venture
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.getMaxHealthOfType(Health.SHIELDS) >= floor(ADJ_VENTURE_EXPLORER_SHIELDS/OW2_VENTURE_EXPLORER_SHIELDS * OW2_VENTURE_EXPLORER_SHIELDS_ULTIMATE)
     
     eventPlayer.addHealthPool(
@@ -38,7 +38,7 @@ rule "[venture/init.opy]: Correct Venture bonus shields":
 
 rule "[venture/init.opy]: Correct Venture melee damage":
     @Event playerDealtDamage
-    @Hero venture
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventAbility == Button.MELEE
     
     damage(

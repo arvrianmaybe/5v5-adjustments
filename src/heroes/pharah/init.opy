@@ -17,7 +17,7 @@ rule "[pharah/init.opy]: Initialize Pharah":
 
 rule "[pharah/init.opy]: Reduce Primary Fire attack speed":
     @Event eachPlayer
-    @Hero pharah
+    @Condition eventPlayer.hero_setup == Hero.PHARAH
     @Condition eventPlayer.isFiringPrimaryFire()
     
     eventPlayer.setPrimaryFireEnabled(false)

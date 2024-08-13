@@ -14,7 +14,7 @@ rule "[reinhardt/charge.opy]: Correct Charge damage":
 
 rule "[reinhardt/charge.opy]: Reduce Charge radius":
     @Event eachPlayer
-    @Hero reinhardt
+    @Condition eventPlayer.hero_setup == Hero.REINHARDT
     @Condition eventPlayer.isUsingAbility1()
 
     eventPlayer.startForcingThrottle(0, 1/OW2_REINHARDT_TURN_BONUS, 0, 1/OW2_REINHARDT_TURN_BONUS, 0, 1/OW2_REINHARDT_TURN_BONUS)

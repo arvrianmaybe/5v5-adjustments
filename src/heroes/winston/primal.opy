@@ -8,7 +8,7 @@ playervar primal_pvar
 
 rule "[winston/primal.opy]: Remove bonus Primal Rage health":
     @Event eachPlayer
-    @Hero winston
+    @Condition eventPlayer.hero_setup == Hero.WINSTON
     @Condition eventPlayer.isUsingUltimate()
 
     removeHealthPool(eventPlayer._primal_hp_id)

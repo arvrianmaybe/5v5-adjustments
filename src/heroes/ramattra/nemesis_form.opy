@@ -1,26 +1,20 @@
 #!mainFile "../../dev_main.opy"
 
 
-rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form armor and movement speed":
+rule "[ramattra/nemesis_form.opy]: Correct Nemesis Form  movement speed":
     @Event eachPlayer
-    @Hero ramattra
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
+    @Condition eventPlayer.hero_setup == Hero.RAMATTRA
+    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR)
     
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_NEMESIS_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))
-    eventPlayer.addHealthPool(Health.ARMOR, 5, true, true) # for some reason the addHealthPool function doesn't read constants as usable numbers
-    waitUntil(eventPlayer.getMaxHealthOfType(Health.ARMOR) < 6, 99999)
+    waitUntil(not eventPlayer.isUsingAbility1(), Math.INFINITY)
     eventPlayer.setMoveSpeed(100)
-    removeHealthPool(getLastCreatedHealthPool())
-    
-    # wait(0.5)
-    # if eventPlayer.getAbilityCooldown(Button.ABILITY_1) > 0:
-    #     eventPlayer.setAbilityCooldown(Button.ABILITY_1, ADJ_RAMATTRA_NEMESIS_COOLDOWN - 0.5)
 
 
 rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
     @Event playerDealtDamage
     @Hero ramattra
-    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR) == true
+    @Condition eventPlayer.getMaxHealthOfType(Health.ARMOR)
     @Condition eventDamage > 50 # This condition stops vortex from applying the damage increase
     @Condition eventAbility != Button.MELEE
     
@@ -30,7 +24,7 @@ rule "[ramattra/nemesis_form.opy]: Increase Pummel damage":
 rule "[ramattra/nemesis_form.opy]: Bonus Annihilation movement speed":
     @Event eachPlayer
     @Hero ramattra
-    @Condition eventPlayer.isUsingUltimate() == true
+    @Condition eventPlayer.isUsingUltimate()
     
     wait(0.064)
     eventPlayer.setMoveSpeed(percent(ADJ_RAMATTRA_ANNIHILATION_MOVESPEED/OW2_RAMATTRA_NEMESIS_MOVESPEED))

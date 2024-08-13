@@ -3,7 +3,7 @@
 
 rule "[orisa/init.opy]: Correct Fortify overhealth and movement speed":
     @Event eachPlayer
-    @Hero orisa
+    @Condition eventPlayer.hero_setup == Hero.ORISA
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.setMoveSpeed(percent(ADJ_ORISA_FORTIFY_MOVESPEED/OW2_ORISA_FORTIFY_MOVESPEED))

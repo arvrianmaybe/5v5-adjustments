@@ -3,7 +3,7 @@
 
 rule "[wreckingball/shields.opy]: Remove Adaptive Shields overhealth transfer":
     @Event eachPlayer
-    @Hero hammond
+    @Condition eventPlayer.hero_setup == Hero.HAMMOND
     @Condition eventPlayer.isUsingAbility2()
     
     eventPlayer.disallowButton(Button.ABILITY_2)

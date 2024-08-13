@@ -15,7 +15,7 @@ rule "[genji/init.opy]: Initialize Genji":
 
 rule "[genji/init.opy]: Correct Shurikens damage":
     @Event playerDealtDamage
-    @Hero genji
+    @Condition eventPlayer.hero_setup == Hero.GENJI
     @Condition eventAbility in [Button.PRIMARY_FIRE, Button.SECONDARY_FIRE]
 
     heal(victim, attacker, eventDamage * (ADJ_GENJI_SHURIKEN_DAMAGE/OW2_GENJI_SHURIKEN_DAMAGE) - eventDamage)

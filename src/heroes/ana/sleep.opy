@@ -3,7 +3,7 @@
 
 rule "[ana/sleep.opy]: Sleep tanks as long as other heroes":
     @Event playerDealtDamage
-    @Hero ana
+    @Condition eventPlayer.hero_setup == Hero.ANA
     @Condition eventAbility == Button.ABILITY_1
     @Condition victim.getCurrentHero() in getTankHeroes()
 

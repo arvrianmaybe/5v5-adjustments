@@ -14,7 +14,7 @@ rule "[illari/solar_rifle.opy]: Correct Solar Rifle damage":
 
 rule "[illari/solar_rifle.opy]: Correct Solar Rifle healing":
     @Event eachPlayer
-    @Hero illari
+    @Condition eventPlayer.hero_setup == Hero.ILLARI
     @Condition eventPlayer.isHoldingButton(Button.SECONDARY_FIRE)
     
     eventPlayer.setHealingDealt(percent(ADJ_ILLARI_SOLAR_RIFLE_HEALING/OW2_ILLARI_SOLAR_RIFLE_HEALING))

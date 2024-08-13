@@ -32,7 +32,7 @@ rule "[doomfist/init.opy]: Correct Rocket Punch and Meteor Strike damage":
 
 rule "[doomfist/init.opy]: Reduce Powerblock duration":
     @Event eachPlayer
-    @Hero doomfist
+    @Condition eventPlayer.hero_setup == Hero.DOOMFIST
     @Condition eventPlayer.isUsingAbility2()
 
     wait(ADJ_DOOMFIST_POWER_BLOCK_DURATION)

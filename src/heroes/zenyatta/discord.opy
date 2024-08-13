@@ -4,7 +4,7 @@ playervar discord_orb_damage
 
 rule "[zenyatta/discord.opy]: Set discord orb":
     @Event eachPlayer
-    @Hero zenyatta
+    @Condition eventPlayer.hero_setup == Hero.ZENYATTA
     @Condition eventPlayer.isUsingAbility2()
 
     eventPlayer.getPlayerClosestToReticle(getOppositeTeam(eventPlayer.getTeam())).discord_orb_damage = true

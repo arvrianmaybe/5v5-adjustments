@@ -19,7 +19,7 @@ rule "[venture/tectonic_shock.opy]: Increase Tectonic Shock damage":
 
 rule "[venture/tectonic_shock.opy]: Disallow Abilities during Tectonic Shock":
     @Event eachPlayer
-    @Hero venture
+    @Condition eventPlayer.hero_setup == Hero.VENTURE
     @Condition eventPlayer.isUsingUltimate()
 
     eventPlayer.setAbilityCooldown(Button.ABILITY_1, 0)

@@ -2,7 +2,7 @@
 
 rule "[brigitte/bash.opy]: Add stun to shield bash":
     @Event playerDealtDamage
-    @Hero brigitte
+    @Condition eventPlayer.hero_setup == Hero.BRIGITTE
     @Condition attacker.isFiringSecondaryFire()
     @Condition eventAbility == Button.PRIMARY_FIRE
     

@@ -3,7 +3,7 @@
 
 rule "[bastion/reconfigure.opy]: Reduce assault form damage and movement speed":
     @Event eachPlayer
-    @Hero bastion
+    @Condition eventPlayer.hero_setup == Hero.BASTION
     @Condition eventPlayer.isUsingAbility1()
     
     eventPlayer.setDamageReceived(percent(ADJ_BASTION_IRONCLAD_RESISTANCE/OW2_BASTION_IRONCLAD_RESISTANCE))

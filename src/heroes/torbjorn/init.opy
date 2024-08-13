@@ -19,7 +19,7 @@ rule "[torbjorn/init.opy]: Initialize Torbjorn":
 
 rule "[torbjorn/init.opy]: Increase Rivet Gun alternate fire ammo cost":
     @Event eachPlayer
-    @Hero torbjorn
-    @Condition eventPlayer.isFiringSecondaryFire() == true
+    @Condition eventPlayer.hero_setup == Hero.TORBJORN
+    @Condition eventPlayer.isFiringSecondaryFire()
     
     eventPlayer.setAmmo(0, eventPlayer.getAmmo(0) - 1)

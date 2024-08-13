@@ -23,7 +23,7 @@ rule "[kiriko/init.opy]: Initialize Kiriko":
 
 rule "[kiriko/init.opy]: Track Protection Suzu healing":
     @Event playerDealtHealing
-    @Hero kiriko
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
     @Condition eventAbility == Button.ABILITY_2
     
     eventPlayer.suzu_flying = false
@@ -31,8 +31,8 @@ rule "[kiriko/init.opy]: Track Protection Suzu healing":
 
 rule "[kiriko/init.opy]: Allow self healing during Protection Suzu":
     @Event eachPlayer
-    @Hero kiriko
-    @Condition eventPlayer.isHoldingButton(Button.ABILITY_2) == true
+    @Condition eventPlayer.hero_setup == Hero.KIRIKO
+    @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
     @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     
     damage(eventPlayer, null, MIN_DAMAGE)

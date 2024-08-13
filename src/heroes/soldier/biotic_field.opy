@@ -3,7 +3,7 @@
 
 rule "[soldier/biotic_field.opy]: Allow self healing during Biotic Field":
     @Event eachPlayer
-    @Hero soldier
+    @Condition eventPlayer.hero_setup == Hero.SOLDIER
     @Condition eventPlayer.isUsingAbility2()
 
     damage(eventPlayer, null, MIN_DAMAGE)

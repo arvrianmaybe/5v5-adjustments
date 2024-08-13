@@ -6,7 +6,7 @@ subroutine startDeadeye
 
 rule "[cassidy/deadeye.opy]: OW1 deadeye damage + remove OW2 damage reduction during deadeye":
     @Event eachPlayer
-    @Hero cassidy
+    @Condition eventPlayer.hero_setup == Hero.CASSIDY
     @Condition eventPlayer.isUsingUltimate()
 
     async(startDeadeye, AsyncBehavior.RESTART)

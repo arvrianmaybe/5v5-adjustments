@@ -22,7 +22,7 @@ rule "[baptiste/init.opy]: Initialize Baptiste":
 
 rule "[baptiste/init.opy]: Increase Baptiste melee damage":
     @Event playerDealtDamage
-    @Hero baptiste
+    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility in [Button.MELEE]
     
     damage(victim, attacker, ((eventDamage/eventPlayer._base_damage_scalar) - eventDamage)/eventPlayer._base_damage_scalar)
@@ -30,7 +30,7 @@ rule "[baptiste/init.opy]: Increase Baptiste melee damage":
 
 rule "[baptiste/init.opy]: Increase Biotic Launcher healing":
     @Event playerDealtHealing
-    @Hero baptiste
+    @Condition eventPlayer.hero_setup == Hero.BAPTISTE
     @Condition eventAbility == Button.SECONDARY_FIRE
     @Condition eventHealing < ADJ_BAPTISTE_BIOTIC_LAUNCHER_HEALING_SPLASH
     @Condition eventPlayer.balance_change_check

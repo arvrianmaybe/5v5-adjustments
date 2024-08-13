@@ -24,7 +24,7 @@ rule "[reaper/init.opy]: Increase Hellfire Shotgun damage":
 
 rule "[reaper/init.opy]: Reduce Death Blossom damage":
     @Event eachPlayer
-    @Hero reaper
+    @Condition eventPlayer.hero_setup == Hero.REAPER
     @Condition eventPlayer.isUsingUltimate()
     
     eventPlayer.setDamageDealt(percent(ADJ_REAPER_DEATH_BLOSSON_DAMAGE/OW2_REAPER_DEATH_BLOSSON_DAMAGE))
